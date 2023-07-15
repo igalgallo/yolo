@@ -12,8 +12,6 @@ COPY . .
 #====BUILD==========
 #install dependecies (npm ci )
 RUN npm ci
-
-
 #set the env to"production"
 ENV NODE_ENV production
 

@@ -3,11 +3,27 @@
 ### 1. Choice of the base image on which to build each container.
 
 The client and backend applications runs on Node 16-Alphine images as base for each container.
-Build client app using nginx based on nginx:1.21.0-alpine image.
+
 Mango DB lastest version image used.
 Alpine image version of node is small ins ize and helps reduce the size of built images.
 
 ### Dockerfile directives used in the creation and running of each container.
+
+### Client Container
+FROM node:16-alpine : used Node 16 as base image
+
+WORKDIR /app : Set the working directory to /app inside the container
+COPY . . : copy app files to the working directory
+RUN npm ci : install dependecies (npm ci )
+RUN npm run build : Build the app
+ENV NODE_ENV production : set the env to"production"
+EXPOSE 3000 : expose the port on which the app will be running (3000 is the default that 'serve')
+CMD [ "npx","serve","build" ] : command to Start the app when container run
+
+
+Backend Container
+
+
 
 
 ### Docker-compose Networking (Application port allocation and a bridge network implementation) where necessary.

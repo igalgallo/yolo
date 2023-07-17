@@ -7,7 +7,7 @@ The client and backend applications runs on Node 16-Alphine images as base for e
 Mango DB lastest version image used.
 Alpine image version of node is small ins ize and helps reduce the size of built images.
 
-### Dockerfile directives used in the creation and running of each container.
+### 2.Dockerfile directives used in the creation and running of each container.
 
 ### Client Container
 FROM node:16-alpine : used Node 16 as base image
@@ -32,10 +32,10 @@ CMD [ "npm","start" ] : Start the app
 
 
 
-### Docker-compose Networking (Application port allocation and a bridge network implementation) where necessary.
+### 3. Docker-compose Networking (Application port allocation and a bridge network implementation) where necessary.
 
 
-### Docker-compose volume definition and usage (where necessary).
+### 4. Docker-compose volume definition and usage (where necessary).
 Networking in docker-compose has been implemented using port mapping and a bridge network for secure communication between containers:
 Port Mapping -  this is mapping between conatiner and host to  enable application to be accessed outside the docker environment , see below
 
@@ -48,7 +48,7 @@ networks:
     driver: bridge
     
 
-### Git workflow used to achieve the task.
+###  5.Git workflow used to achieve the task.
 Git branch flow as shown below:
 
 Forking : the repository was forked and created a copy from original copy
@@ -56,11 +56,10 @@ Cloning: the forked repository was  cloned to locat laptop.
 Commit: all changes made to code was commited to local repository
 Push: the changes commited pushed to remote repository
 
-### Successful running of the applications and if not, debugging measures applied.
+### 6. Successful running of the applications and if not, debugging measures applied.
 Run docker compose-up  : this bring up application successful
 Re-build images : incase of changes made in dockerfile. images were re-built and container restarted.
 
-### Good practices such as Docker image tag naming standards for ease of identification of images and containers. 
+### 7. Good practices such as Docker image tag naming standards for ease of identification of images and containers. 
 The built container were named and tagged 
-~git push
-``
+

@@ -61,5 +61,6 @@ Run docker compose-up  : this bring up application successful
 Re-build images : incase of changes made in dockerfile. images were re-built and container restarted.
 
 ### Good practices such as Docker image tag naming standards for ease of identification of images and containers. 
+The built container were named and tagged 
 ~git push
 ``

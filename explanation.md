@@ -13,21 +13,32 @@ Alpine image version of node is small ins ize and helps reduce the size of built
 FROM node:16-alpine : used Node 16 as base image
 
 WORKDIR /app : Set the working directory to /app inside the container
+
 COPY . . : copy app files to the working directory
+
 RUN npm ci : install dependecies (npm ci )
+
 RUN npm run build : Build the app
+
 ENV NODE_ENV production : set the env to"production"
+
 EXPOSE 3000 : expose the port on which the app will be running (3000 is the default that 'serve')
+
 CMD [ "npx","serve","build" ] : command to Start the app when container run
 
 
 ### Backend Container
 FROM node:16-alpine : use Node 16 base image
+
 WORKDIR /app : Set the working directory to /app inside the container
+
 COPY . . : copy app files
 RUN npm ci : install dependecies (npm ci )
+
 ENV NODE_ENV production : set the env to"production"
+
 EXPOSE 5000: expose the port on which the app will be running (5000 is the default that 'serve')
+
 CMD [ "npm","start" ] : Start the app
 
 

@@ -21,11 +21,10 @@ EXPOSE 3000 : expose the port on which the app will be running (3000 is the defa
 CMD [ "npx","serve","build" ] : command to Start the app when container run
 
 
-Backend Container
+### Backend Container
 FROM node:16-alpine : use Node 16 base image
 WORKDIR /app : Set the working directory to /app inside the container
 COPY . . : copy app files
-#====BUILD==========
 RUN npm ci : install dependecies (npm ci )
 ENV NODE_ENV production : set the env to"production"
 EXPOSE 5000: expose the port on which the app will be running (5000 is the default that 'serve')
@@ -37,7 +36,17 @@ CMD [ "npm","start" ] : Start the app
 
 
 ### Docker-compose volume definition and usage (where necessary).
+Networking in docker-compose has been implemented using port mapping and a bridge network for secure communication between containers:
+Port Mapping -  this is mapping between conatiner and host to  enable application to be accessed outside the docker environment , see below
 
+Client  ports:3000:3000
+Backend ports:5000:5000
+
+Bridge Network is defined and attached to all servoces to enable containers communication. see below from our docker compose yaml
+networks:
+  app-network:
+    driver: bridge
+    
 
 ### Git workflow used to achieve the task.
 

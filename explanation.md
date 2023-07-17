@@ -58,6 +58,7 @@ Push: the changes commited pushed to remote repository
 
 ### Successful running of the applications and if not, debugging measures applied.
 Run docker compose-up  : this bring up application successful
+Re-build images : incase of changes made in dockerfile. images were re-built and container restarted.
 
 ### Good practices such as Docker image tag naming standards for ease of identification of images and containers. 
 ~git push

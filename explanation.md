@@ -49,6 +49,12 @@ networks:
     
 
 ### Git workflow used to achieve the task.
+Git branch flow as shown below:
+
+Forking : the repository was forked and created a copy from original copy
+Cloning: the forked repository was  cloned to locat laptop.
+Commit: all changes made to code was commited to local repository
+Push: the changes commited pushed to remote repository
 
 ### Successful running of the applications and if not, debugging measures applied.
 

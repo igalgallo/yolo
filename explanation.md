@@ -22,7 +22,14 @@ CMD [ "npx","serve","build" ] : command to Start the app when container run
 
 
 Backend Container
-
+FROM node:16-alpine : use Node 16 base image
+WORKDIR /app : Set the working directory to /app inside the container
+COPY . . : copy app files
+#====BUILD==========
+RUN npm ci : install dependecies (npm ci )
+ENV NODE_ENV production : set the env to"production"
+EXPOSE 5000: expose the port on which the app will be running (5000 is the default that 'serve')
+CMD [ "npm","start" ] : Start the app
 
 
 

@@ -34,9 +34,8 @@ CMD [ "npm","start" ] : Start the app
 
 ### 3. Docker-compose Networking (Application port allocation and a bridge network implementation) where necessary.
 
-
-### 4. Docker-compose volume definition and usage (where necessary).
 Networking in docker-compose has been implemented using port mapping and a bridge network for secure communication between containers:
+
 Port Mapping -  this is mapping between conatiner and host to  enable application to be accessed outside the docker environment , see below
 
 Client  ports:3000:3000
@@ -46,7 +45,23 @@ Bridge Network is defined and attached to all servoces to enable containers comm
 networks:
   app-network:
     driver: bridge
+
+### 4. Docker-compose volume definition and usage (where necessary).
+
+    A volume was defined in docker compose as shown below;
+    volumes:
+      dbdata:
+    Usage - they used to persist data across the container shutdown and startup, see below script from docker compose.
     
+    mongodb:
+    image: mongo
+    restart: always
+    ports:
+      - 27017:27017
+    volumes:
+      - dbdata:/data/db
+    networks:
+      - app-network
 
 ###  5.Git workflow used to achieve the task.
 Git branch flow as shown below:

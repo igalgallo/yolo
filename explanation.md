@@ -93,3 +93,4 @@ Re-build images : incase of changes made in dockerfile. images were re-built and
 ### 7. Good practices such as Docker image tag naming standards for ease of identification of images and containers. 
 The built container were named and tagged 
 
+#######IP3-WEEK6

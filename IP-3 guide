@@ -53,3 +53,7 @@ ip3.com ansible_ssh_port=2222 ansible_ssh_host=127.0.1.1 ansible_ssh_user='vagra
 galgee@devops:~/Documents/development/IP-2/yolo$ ansible-galaxy init server_installation
 - Role server_installation was created successfully
 galgee@devops:~/Documents/development/IP-2/yolo$ 
+
+
+7. docker compose up 
+to bring up application

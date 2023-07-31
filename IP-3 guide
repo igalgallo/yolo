@@ -1,0 +1,13 @@
+vagrant init 
+ to create vagrantfile
+ 
+ configure vagrant file
+ create palybook.yml
+ create ansible.cfg
+ create hosts file
+ 
+ then creates ROles using this command # ansible-galaxy init server_installation
+ 
+galgee@devops:~/Documents/development/IP-2/yolo$ ansible-galaxy init server_installation
+- Role server_installation was created successfully
+galgee@devops:~/Documents/development/IP-2/yolo$ 

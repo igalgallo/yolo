@@ -1,6 +1,4 @@
 ---
 # vars file for roles/clone-repo
----
-# vars file for roles/git-clone-yolo
 repo_url: https://github.com/igalgallo/yolo.git
 dest_folder: /home/vagrant/yolo

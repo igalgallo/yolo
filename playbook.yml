@@ -3,7 +3,8 @@
   hosts:  all
   become:  yes
   roles:
-    - server-installation
+    - server_installation
+
 
   vars:
     git_repo_url: "https://github.com/igalgallo/yolo.git"

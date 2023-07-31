@@ -73,5 +73,32 @@ ip3.com ansible_ssh_port=2222 ansible_ssh_host=127.0.1.1 ansible_ssh_user='vagra
 
  #under each role  ,go to edit tasks -main.yml files and vars-main.yml
 
+ 7. Run playbook to bring up vagrant 
+ #vagrant provision
+
 7. docker compose up 
 to bring up application
+
+==========================================================
+galgee@devops:~/Documents/development/IP-2/yolo$ vagrant ssh
+Welcome to Ubuntu 20.04.3 LTS (GNU/Linux 5.4.0-42-generic x86_64)
+
+ * Documentation:  https://help.ubuntu.com
+ * Management:     https://landscape.canonical.com
+ * Support:        https://ubuntu.com/advantage
+New release '22.04.2 LTS' available.
+Run 'do-release-upgrade' to upgrade to it.
+
+Last login: Mon Jul 31 18:50:01 2023 from 10.0.2.2
+vagrant@vagrant:~$ sudo docker images
+REPOSITORY   TAG       IMAGE ID       CREATED       SIZE
+mongo        latest    fb5fba25b25a   2 weeks ago   654MB
+vagrant@vagrant:~$ 
+
+vagrant@vagrant:~$ sudo docker ps -a
+CONTAINER ID   IMAGE           COMMAND                  CREATED         STATUS         PORTS                                           NAMES
+4d69355a899e   yolo-frontend   "docker-entrypoint.s…"   5 minutes ago   Up 5 minutes   0.0.0.0:3000->3000/tcp, :::3000->3000/tcp       yolo-frontend-1
+6fa03bb24da0   yolo-backend    "docker-entrypoint.s…"   5 minutes ago   Up 5 minutes   0.0.0.0:5000->5000/tcp, :::5000->5000/tcp       yolo-backend-1
+1f9683212790   mongo           "docker-entrypoint.s…"   5 minutes ago   Up 5 minutes   0.0.0.0:27017->27017/tcp, :::27017->27017/tcp   yolo-mongodb-1
+vagrant@vagrant:~$ 
+

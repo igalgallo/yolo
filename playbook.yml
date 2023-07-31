@@ -3,7 +3,8 @@
   hosts:  all
   become:  yes
   roles:
-    - server_installation
+    - docker-installation
+    
 
 
   vars:

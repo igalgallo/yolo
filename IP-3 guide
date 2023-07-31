@@ -1,12 +1,54 @@
-vagrant init 
- to create vagrantfile
+1. to create vagrantfile
+#vagrant init 
  
- configure vagrant file
- create palybook.yml
- create ansible.cfg
- create hosts file
  
- then creates ROles using this command # ansible-galaxy init server_installation
+2.Modify and configure vagrant file as below
+ ===========
+ # All Vagrant configuration is done below. The "2" in Vagrant.configure
+# configures the configuration version (we support older styles for
+# backwards compatibility). 
+ Vagrant.configure("2") do |config|
+ # Every Vagrant development environment requires a box. You can search for
+  # boxes at https://vagrantcloud.com/search.
+ config.vm.box = "geerlingguy/ubuntu2004"
+ 
+ Create a private network, which allows host-only access to the machine
+  # using a specific PORT.
+  
+  config.vm.network "private_network", type: "dhcp"
+  config.vm.network "forwarded_port", guest: 3000, host: 3000
+  config.vm.network "forwarded_port", guest: 5000, host: 5000
+  
+  # Enable provisioning with a shell script. Additional provisioners such as
+  # Ansible, Chef, Docker, Puppet and Salt are also available. Please see the
+  
+  
+  config.vm.provision "ansible" do |ansible|
+    ansible.compatibility_mode = "2.0"
+    ansible.config_file = "ansible.cfg"
+    ansible.playbook = "playbook.yml"
+  end
+ end
+ 
+ 3. create palybook.yml
+ 4. create ansible.cfg
+ ==================
+ [defaults]
+inventory = hosts
+remote_user = vagrant
+host_key_checking = False
+=============================
+
+ 5. create hosts file
+ ==========
+ [webservers]
+ip3.com ansible_ssh_port=2222 ansible_ssh_host=127.0.1.1 ansible_ssh_user='vagrant'
+
+ ##ip3.com ansible_host=127.0.0.1 ansible_port=2222
+ =============================
+ 
+ 6. then create a role using this command  for server_installation in the playbook.yml
+ # ansible-galaxy init server_installation
  
 galgee@devops:~/Documents/development/IP-2/yolo$ ansible-galaxy init server_installation
 - Role server_installation was created successfully

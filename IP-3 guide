@@ -31,6 +31,23 @@
  end
  
  3. create palybook.yml
+===================================
+ ---
+- name:  sample_yolo_playbook
+  hosts:  all
+  become:  yes
+  roles:
+    - docker-installation
+    - clone-repo
+
+  tasks:
+    - name: run docker docker-compose.yaml
+      command: docker compose up -d
+      args:
+        chdir: /home/vagrant/yolo
+
+
+        ============================================
  4. create ansible.cfg
  ==================
  [defaults]
@@ -48,12 +65,13 @@ ip3.com ansible_ssh_port=2222 ansible_ssh_host=127.0.1.1 ansible_ssh_user='vagra
  =============================
  
  6. then create a role using this command  for server_installation in the playbook.yml
- # ansible-galaxy init server_installation
- 
-galgee@devops:~/Documents/development/IP-2/yolo$ ansible-galaxy init server_installation
-- Role server_installation was created successfully
-galgee@devops:~/Documents/development/IP-2/yolo$ 
 
+ Create Roles for each as below
+ #ansible-galaxy role init roles/role name
+ ansible-galaxy role init roles/docker docker-installation
+ ansible-galaxy role init roles/clone-repo
+
+ #under each role  ,go to edit tasks -main.yml files and vars-main.yml
 
 7. docker compose up 
 to bring up application

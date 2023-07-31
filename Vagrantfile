@@ -58,9 +58,9 @@ Vagrant.configure("2") do |config|
   # Example for VirtualBox:
   #
   #config.vm.provider "virtualbox" do |vb|
-    vb.memory = "1024"
-    vb.cpus = 2
-  end
+    #vb.memory = "1024"
+    #vb.cpus = 2
+  #end
   #   # Display the VirtualBox GUI when booting the machine
   #   vb.gui = true
   #
@@ -74,8 +74,10 @@ Vagrant.configure("2") do |config|
   # Enable provisioning with a shell script. Additional provisioners such as
   # Ansible, Chef, Docker, Puppet and Salt are also available. Please see the
   # documentation for more information about their specific syntax and use.
-  # config.vm.provision "shell", inline: <<-SHELL
-  #   apt-get update
-  #   apt-get install -y apache2
-  # SHELL
-end
+  config.vm.provision "ansible" do |ansible|
+    ansible.compatibility_mode = "2.0"
+    ansible.config_file = "ansible.cfg"
+    ansible.playbook = "playbook.yml"
+ end
+
+end 

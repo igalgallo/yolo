@@ -1,5 +1,5 @@
 ---
-- name:  sample playbook
+- name:  sample_yolo_playbook
   hosts:  all
   become:  yes
   roles:
@@ -20,4 +20,4 @@
    - name: run docker docker-compose.yaml
      command: docker-compose up -d
      args:
-        chdir: /home/galgee/{{ project_name }}
+        chdir: /home/ubuntu{{ project_name }}

@@ -4,23 +4,10 @@
   become:  yes
   roles:
     - docker-installation
-    
+    - clone-repo
 
-
-  vars:
-    git_repo_url: "https://github.com/igalgallo/yolo.git"
-    project_name: "yolo"
-
-
-  tasks:
-
-    - name: clone the git repository
-      git:
-        repo: "{{ git_repo_url }}"
-        version: master
-        force: yes
-
+   tasks:
     - name: run docker docker-compose.yaml
       command: docker-compose up -d
       args:
-        chdir: /home/ubuntu{{ project_name }}
+        chdir: /home/vagrant/yolo

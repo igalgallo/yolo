@@ -11,6 +11,7 @@
 
 
  tasks:
+ 
    - name: clone the git repository
      git:
         repo: "{{ git_repo_url }}"

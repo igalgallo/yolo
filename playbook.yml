@@ -13,12 +13,12 @@
   tasks:
 
     - name: clone the git repository
-     git:
+      git:
         repo: "{{ git_repo_url }}"
         version: master
         force: yes
 
-   - name: run docker docker-compose.yaml
-     command: docker-compose up -d
-     args:
+    - name: run docker docker-compose.yaml
+      command: docker-compose up -d
+      args:
         chdir: /home/ubuntu{{ project_name }}

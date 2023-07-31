@@ -10,9 +10,9 @@
     project_name: "yolo"
 
 
- tasks:
- 
-   - name: clone the git repository
+  tasks:
+
+    - name: clone the git repository
      git:
         repo: "{{ git_repo_url }}"
         version: master

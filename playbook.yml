@@ -6,7 +6,7 @@
     - docker-installation
     - clone-repo
 
-   tasks:
+  tasks:
     - name: run docker docker-compose.yaml
       command: docker-compose up -d
       args:

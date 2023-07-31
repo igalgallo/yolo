@@ -1,0 +1,52 @@
+---
+- name:  sample playbook
+  hosts:  all
+  become:  yes
+  tasks:
+- name: Ensure NTP (for time synchronization) is installed.
+  apt:
+    name = ntp 
+    state = present
+
+- name: Ensure NTP is running.
+  service: 
+    name = ntpd 
+    state = started 
+    enabled = yes
+
+- name: test server connectivity
+  ping:
+
+- name: install apached
+  apt: 
+    name: apache2
+    state: latest
+
+- name: install git
+  apt:
+    name: git
+    state: latest   
+  
+####INSTALL NODEJS NPM AS ONE THE TASKS
+- name: Install required packages
+  community.general.apk:
+  name:
+   - nodejs npm
+  state: present
+
+- name: Update npm to the latest version (optional)
+  community.general.npm:
+  name: npm
+  state: latest
+
+- name: Install Node.js 16 using nvm
+  community.general.npm:
+  name: n
+  global: yes
+  state: present
+  executable: '{{ ansible_user_dir }}/.nvm/versions/node/{{ node_version }}/bin/npm'
+  args: install {{ node_version }}
+    
+  vars:
+  node_version: 16
+    

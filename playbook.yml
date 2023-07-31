@@ -1,0 +1,23 @@
+---
+- name:  sample playbook
+  hosts:  all
+  become:  yes
+  roles:
+    - server_set_up
+
+  vars:
+    git_repo_url: "https://github.com/igalgallo/yolo.git"
+    project_name: "yolo"
+
+
+ tasks:
+   - name: clone the git repository
+     git:
+        repo: "{{ git_repo_url }}"
+        version: master
+        force: yes
+
+   - name: run docker docker-compose.yaml
+     command: docker-compose up -d
+     args:
+        chdir: /home/galgee/{{ project_name }}

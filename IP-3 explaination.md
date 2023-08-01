@@ -1,4 +1,14 @@
-1. to create vagrantfile
+### P-3 Project
+Tasks 
+1. set up Application server 
+2. Create Roles with 3 tasks as follows
+3. Install docker
+4. Clone repo
+5. Docker compose
+6. Test application if its run
+
+
+ 1. to create vagrantfile
 #vagrant init 
  
  

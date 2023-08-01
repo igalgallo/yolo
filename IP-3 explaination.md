@@ -1,96 +1,44 @@
-### P-3 Project
-Tasks 
+### IP-3 Project
+
+## Tasks 
+
 1. set up Application server 
 2. Create Roles with 3 tasks as follows
 3. Install docker
 4. Clone repo
 5. Docker compose
-6. Test application if its run
+6. Test application if its created containers and application run.
 
 
- 1. to create vagrantfile
+### Set up Application server 
+## Iniatiate vagrantfile and modify vagrantfile with  instruction to set up the Virtual boxTo create vagrantfile
 #vagrant init 
- 
- 
-2.Modify and configure vagrant file as below
- ===========
- # All Vagrant configuration is done below. The "2" in Vagrant.configure
-# configures the configuration version (we support older styles for
-# backwards compatibility). 
- Vagrant.configure("2") do |config|
- # Every Vagrant development environment requires a box. You can search for
-  # boxes at https://vagrantcloud.com/search.
- config.vm.box = "geerlingguy/ubuntu2004"
- 
- Create a private network, which allows host-only access to the machine
-  # using a specific PORT.
-  
-  config.vm.network "private_network", type: "dhcp"
-  config.vm.network "forwarded_port", guest: 3000, host: 3000
-  config.vm.network "forwarded_port", guest: 5000, host: 5000
-  
-  # Enable provisioning with a shell script. Additional provisioners such as
-  # Ansible, Chef, Docker, Puppet and Salt are also available. Please see the
-  
-  
-  config.vm.provision "ansible" do |ansible|
-    ansible.compatibility_mode = "2.0"
-    ansible.config_file = "ansible.cfg"
-    ansible.playbook = "playbook.yml"
-  end
- end
- 
- 3. create palybook.yml
-===================================
- ---
-- name:  sample_yolo_playbook
-  hosts:  all
-  become:  yes
-  roles:
-    - docker-installation
-    - clone-repo
 
-  tasks:
-    - name: run docker docker-compose.yaml
-      command: docker compose up -d
-      args:
-        chdir: /home/vagrant/yolo
+#Then 
+## create playbook.yml 
+##  create ansible.cfg
+## create hosts file
 
+#### Create Roles with 3 Tasks as below
 
-        ============================================
- 4. create ansible.cfg
- ==================
- [defaults]
-inventory = hosts
-remote_user = vagrant
-host_key_checking = False
-=============================
-
- 5. create hosts file
- ==========
- [webservers]
-ip3.com ansible_ssh_port=2222 ansible_ssh_host=127.0.1.1 ansible_ssh_user='vagrant'
-
- ##ip3.com ansible_host=127.0.0.1 ansible_port=2222
- =============================
- 
- 6. then create a role using this command  for server_installation in the playbook.yml
-
- Create Roles for each as below
+ ## Create Roles for each as below
  #ansible-galaxy role init roles/role name
- ansible-galaxy role init roles/docker docker-installation
- ansible-galaxy role init roles/clone-repo
+ #ansible-galaxy role init roles/docker docker-installation
+ #ansible-galaxy role init roles/clone-repo
 
- #under each role  ,go to edit tasks -main.yml files and vars-main.yml
 
-7.#to bring up application
+## Modify Playbook for each Tasks for installation
+
+ ## under each role  ,go to edit tasks -main.yml files and vars-main.yml
+
+
+### Testing
+## to bring up application
  #docker compose up 
-
-
- 8. Run playbook to bring up vagrant 
+## Run playbook to bring up vagrant 
  #vagrant provision
 
-9. #Login to Vagrant VM by ssh below command
+## Login to Vagrant VM by ssh below command
  
 ##galgee@devops:~/Documents/development/IP-2/yolo$ vagrant ssh
 Welcome to Ubuntu 20.04.3 LTS (GNU/Linux 5.4.0-42-generic x86_64)

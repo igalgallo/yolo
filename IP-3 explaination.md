@@ -4,7 +4,7 @@
 ### Tasks 
 
 1. set up Application server 
-2. Create Roles with and define tasks as follows
+2. Create Roles with and define the following tasks  separately
  Install docker,
  Clone repo,
  Docker compose.

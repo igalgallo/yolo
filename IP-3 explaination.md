@@ -73,14 +73,16 @@ ip3.com ansible_ssh_port=2222 ansible_ssh_host=127.0.1.1 ansible_ssh_user='vagra
 
  #under each role  ,go to edit tasks -main.yml files and vars-main.yml
 
- 7. Run playbook to bring up vagrant 
+7.#to bring up application
+ #docker compose up 
+
+
+ 8. Run playbook to bring up vagrant 
  #vagrant provision
 
-7. docker compose up 
-to bring up application
-
-==========================================================
-galgee@devops:~/Documents/development/IP-2/yolo$ vagrant ssh
+9. #Login to Vagrant VM by ssh below command
+ 
+##galgee@devops:~/Documents/development/IP-2/yolo$ vagrant ssh
 Welcome to Ubuntu 20.04.3 LTS (GNU/Linux 5.4.0-42-generic x86_64)
 
  * Documentation:  https://help.ubuntu.com
@@ -90,6 +92,8 @@ New release '22.04.2 LTS' available.
 Run 'do-release-upgrade' to upgrade to it.
 
 Last login: Mon Jul 31 18:50:01 2023 from 10.0.2.2
+
+10. #Check docker image if created
 vagrant@vagrant:~$ sudo docker images
 REPOSITORY   TAG       IMAGE ID       CREATED       SIZE
 mongo        latest    fb5fba25b25a   2 weeks ago   654MB

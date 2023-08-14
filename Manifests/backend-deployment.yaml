@@ -1,19 +1,19 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: mongodb-deployment
+  name: backend-deployment
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: mongodb
+      app: backend
   template:
     metadata:
       labels:
-        app: mongodb
+        app: backend
     spec:
       containers:
-      - name: mongodb
-        image: mongo:latest
+      - name: backend
+        image: grc.io/kubernetes-395317/yolo-backend:1.1.0
         ports:
-        - containerPort: 27017
+        - containerPort: 5000

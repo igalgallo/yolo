@@ -7,5 +7,5 @@ spec:
     app: mongodb
   ports:
     - protocol: TCP
-      port: 27017  # MongoDB default port
-      targetPort: 27017  # Port your MongoDB container is listening on
+      port: 27017
+      targetPort: 27017
